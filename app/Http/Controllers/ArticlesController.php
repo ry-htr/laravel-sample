@@ -34,7 +34,6 @@ class ArticlesController extends Controller
 
         \Session::flash('flash_message', '記事を追加しました。');
 
-//        return redirect('articles');
         return redirect()->route('articles.index');
     }
 
@@ -53,7 +52,6 @@ class ArticlesController extends Controller
 
         \Session::flash('flash_message', '記事を編集しました。');
 
-//        return redirect(url('articles', [$article->id]));
         return redirect()->route('articles.show', [$article->id]);
     }
 
@@ -65,6 +63,6 @@ class ArticlesController extends Controller
 
         \Session::flash('flash_message', '記事を削除しました。');
 
-        return redirect('articles');
+        return redirect()->route('articles.index');;
     }
 }

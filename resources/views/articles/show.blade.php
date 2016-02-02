@@ -16,5 +16,5 @@
     <br/>
     <br/>
 
-    {!! delete_form(['articles', $article->id]) !!}
+    {!! delete_form(['articles.destroy', $article->id]) !!}
 @stop
