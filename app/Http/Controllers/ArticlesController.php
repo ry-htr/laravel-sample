@@ -10,6 +10,16 @@ use Carbon\Carbon;
 
 class ArticlesController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $articles = Article::latest('published_at')->published()->get();
