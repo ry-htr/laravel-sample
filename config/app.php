@@ -155,6 +155,12 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\MessengerProvider::class,
+        App\Providers\PaymentServiceProvider::class,
+
+        /*
+         * used composer Service Providers
+         */
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,

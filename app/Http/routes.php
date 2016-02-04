@@ -27,6 +27,10 @@ Route::get('send_message/{message}', function(Messenger $messenger, $message){
     return $messenger->send($message);
 });
 
+Route::get('pay/{money}', function($money){
+    return \App\Facades\Payment::pay($money);
+})->where('money', '[0-9]+');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
