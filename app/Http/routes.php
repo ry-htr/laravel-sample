@@ -92,9 +92,7 @@ $this->app->instance('sender_instance', $instance);
 /*
  * Routes
  */
-Route::get('send/{message?}', function($message = '合格通知') {
-    $messenger = $this->app->make('Messenger');
-
+Route::get('send/{message?}', function(Messenger $messenger, $message = '合格通知') {
     return $messenger->send($message);
 });
 
