@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('sendmail/{name?}', function($name = "ゲスト") {
+    Mail::send('emails.welcome', ['name' => $name], function($message) {
+        $message->from('hoge@co.jp')->to('someone@example.com')->subject('Welcome');
+    });
+
+    return "Welcome メッセージを $name に送りました";
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
