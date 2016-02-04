@@ -159,7 +159,7 @@ return [
         App\Providers\PaymentServiceProvider::class,
 
         /*
-         * used composer Service Providers
+         * vendor Service Providers
          */
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
@@ -211,9 +211,18 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+        /*
+         * vendor Facades
+         */
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Flash' => Laracasts\Flash\Flash::class,
+
+        /*
+         * Application Facades
+         */
+        'Payment' => App\Facades\Payment::class,
     ],
 ];
