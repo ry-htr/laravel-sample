@@ -40,7 +40,7 @@ class ArticlesController extends Controller
         $article = \Auth::user()->articles()->create($request->all());
         $article->tags()->attach($request->input('tag_list'));
 
-        \Session::flash('flash_message', '記事を追加しました。');
+        \Flash::success('記事を追加しました。');
 
         return redirect()->route('articles.index');
     }
@@ -57,7 +57,7 @@ class ArticlesController extends Controller
         $article->update($request->all());
         $article->tags()->sync($request->input('tag_list', []));
 
-        \Session::flash('flash_message', '記事を更新しました。');
+        \Flash::success('記事を更新しました。');
 
         return redirect()->route('articles.show', [$article->id]);
     }
@@ -65,7 +65,7 @@ class ArticlesController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        \Session::flash('flash_message', '記事を削除しました。');
+        \Flash::success('記事を削除しました。');
 
         return redirect()->route('articles.index');
     }
