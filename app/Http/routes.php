@@ -67,6 +67,18 @@ class BikeSender implements SenderInterface {
     }
 }
 
+class Messenger {
+    protected $sender;
+
+    public function __construct(MailSender $sender) {
+        $this->sender = $sender;
+    }
+
+    public function send($message) {
+        return $this->sender->send($message);
+    }
+}
+
 /*
  *  Binding
  * @var Illiminate\Foundation\Application $this->app
@@ -81,9 +93,9 @@ $this->app->instance('sender_instance', $instance);
  * Routes
  */
 Route::get('send/{message?}', function($message = '合格通知') {
-    $sender = $this->app->make('sender');
+    $messenger = $this->app->make('Messenger');
 
-    return $sender->send($message);
+    return $messenger->send($message);
 });
 
 Route::get('not_singleton', function() {
