@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            'App\Services\Messenger\Messenger',
+            'App\Services\Messenger\MailMessenger'
+        );
     }
 }
