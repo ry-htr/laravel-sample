@@ -70,7 +70,7 @@ class BikeSender implements SenderInterface {
 class Messenger {
     protected $sender;
 
-    public function __construct(MailSender $sender) {
+    public function __construct(SenderInterface $sender) {
         $this->sender = $sender;
     }
 
@@ -83,7 +83,7 @@ class Messenger {
  *  Binding
  * @var Illiminate\Foundation\Application $this->app
  */
-$this->app->bind('sender', 'MailSender');
+$this->app->bind('SenderInterface', 'MailSender');
 $this->app->singleton('sender_single', 'MailSender');
 
 $instance = new MailSender();
