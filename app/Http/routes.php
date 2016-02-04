@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('sendmail/{name?}', function($name = "guest") {
     Mail::queue('emails.welcome', ['name' => $name], function($message) {
-        $message->from('hoge@huga.com')->to('someone@example.com')->subject('Welcome');
+        $message->from('hoge@hugahuga.com')->to('someone@example.com')->subject('Welcome');
     });
 
     return "Welcome メッセージを $name に送りました";
@@ -30,6 +30,8 @@ Route::get('send_message/{message}', function(Messenger $messenger, $message){
 Route::get('pay/{money}', function($money){
     return \Payment::pay($money);
 })->where('money', '[0-9]+');
+
+Route::get('reminder/{id}', 'UsersController@SendReminderEmail');
 
 /*
 |--------------------------------------------------------------------------
