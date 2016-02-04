@@ -9,12 +9,23 @@
         <div class="body">{{ $article->body }}</div>
     </article>
 
-    <br/>
+    @unless ($article->tags->isEmpty())
+        <h5>Tags:</h5>
+        <ul>
+            @foreach($article->tags as $tag)
+                <li>{{ $tag->name }}</li>
+            @endforeach
+        </ul>
+    @endunless
 
-    {!! link_to(action('ArticlesController@edit', [$article->id]), '編集', ['class' => 'btn btn-primary']) !!}
+    @if (Auth::check())
+        <br/>
 
-    <br/>
-    <br/>
+        {!! link_to(route('articles.edit', [$article->id]), '編集', ['class' => 'btn btn-primary']) !!}
 
-    {!! delete_form(['articles', $article->id]) !!}
+        <br/>
+        <br/>
+
+        {!! delete_form(['articles', $article->id]) !!}
+    @endif
 @stop
