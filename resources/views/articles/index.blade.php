@@ -12,7 +12,7 @@
                 @foreach($articles as $article)
                     <article>
                         <h2>
-                            <a href="{{ url('articles', $article->id) }}">
+                            <a href="{{ route('articles.show', $article->id) }}">
                                 {{ $article->title }}
                             </a>
                         </h2>
@@ -21,6 +21,9 @@
                         </div>
                     </article>
                 @endforeach
+                <div class="panel-footer">
+                    {!! $articles->render() !!}
+                </div>
             </div>
         </div>
     </div>

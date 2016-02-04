@@ -3,8 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
 
 /**
  * リクエスト内容をログに残す
@@ -22,10 +20,7 @@ class MyMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $log = new Logger('mylogger');
-        $log->pushHandler(new StreamHandler('../storage/logs/request.log', Logger::INFO))
-            ->addInfo('request', $request->toArray());
-        $log->addInfo('user', ['hoge' => 'huga']);
+        \Log::info('request', $request->toArray());
 
         return $next($request);
     }
