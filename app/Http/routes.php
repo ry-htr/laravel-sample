@@ -1,5 +1,7 @@
 <?php
+
 use App\Services\Messenger\Messenger;
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -15,19 +17,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('sendmail/{name?}', function($name = "guest") {
-    Mail::queue('emails.welcome', ['name' => $name], function($message) {
+Route::get('sendmail/{name?}', function ($name = 'guest') {
+    Mail::queue('emails.welcome', ['name' => $name], function ($message) {
         $message->from('hoge@hugahuga.com')->to('someone@example.com')->subject('Welcome');
     });
 
     return "Welcome メッセージを $name に送りました";
 });
 
-Route::get('send_message/{message}', function(Messenger $messenger, $message){
+Route::get('send_message/{message}', function (Messenger $messenger, $message) {
     return $messenger->send($message);
 });
 
-Route::get('pay/{money}', function($money){
+Route::get('pay/{money}', function ($money) {
     return \Payment::pay($money);
 })->where('money', '[0-9]+');
 

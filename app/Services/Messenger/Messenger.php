@@ -2,6 +2,7 @@
 
 namespace App\Services\Messenger;
 
-interface Messenger {
+interface Messenger
+{
     public function send($message);
 }

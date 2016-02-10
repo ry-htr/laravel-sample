@@ -1,13 +1,12 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
-
-use Faker\Factory as Faker;
-use Carbon\Carbon;
 use App\Article;
 use App\User;
+use Carbon\Carbon;
+use Faker\Factory as Faker;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,15 +29,14 @@ class DatabaseSeeder extends Seeder
 
 class UsersTableSeeder extends Seeder
 {
-
     public function run()
     {
         DB::table('users')->delete();
 
         User::create([
-            'name' => 'root',
-            'email' => 'root@sample.com',
-            'password' => bcrypt('password')
+            'name'     => 'root',
+            'email'    => 'root@sample.com',
+            'password' => bcrypt('password'),
         ]);
     }
 }
@@ -54,12 +52,11 @@ class ArticlesTableSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++) {
             $article = new Article([
-                'title' => $faker->sentence(),
-                'body' => $faker->paragraph(),
+                'title'        => $faker->sentence(),
+                'body'         => $faker->paragraph(),
                 'published_at' => Carbon::now(),
             ]);
             $user->articles()->save($article);
         }
-
     }
 }

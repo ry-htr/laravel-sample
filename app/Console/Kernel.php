@@ -25,7 +25,8 @@ class Kernel extends ConsoleKernel
      *   * * * * * php /path/to/artisan schedule:run
      * ```
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param \Illuminate\Console\Scheduling\Schedule $schedule
+     *
      * @return void
      */
     protected function schedule(Schedule $schedule)
