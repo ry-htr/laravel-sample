@@ -6,16 +6,16 @@ use Closure;
 
 /**
  * リクエスト内容をログに残す
- * Class MyMiddleware
- * @package App\Http\Middleware
+ * Class MyMiddleware.
  */
 class MyMiddleware
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)

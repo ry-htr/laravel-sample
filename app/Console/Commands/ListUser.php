@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\User;
+use Illuminate\Console\Command;
 
 class ListUser extends Command
 {
@@ -52,7 +52,7 @@ class ListUser extends Command
 
     private function listUser() // ユーザー一覧表示
     {
-        User::all()->each(function($user) {
+        User::all()->each(function ($user) {
             $this->info($user->name);
         });
     }

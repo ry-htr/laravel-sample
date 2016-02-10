@@ -21,6 +21,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = Article::latest('published_at')->published()->paginate(5);
+
         return view('articles.index', compact('articles'));
     }
 
@@ -32,6 +33,7 @@ class ArticlesController extends Controller
     public function create()
     {
         $tags = Tag::lists('name', 'id');
+
         return view('articles.create', compact('tags'));
     }
 

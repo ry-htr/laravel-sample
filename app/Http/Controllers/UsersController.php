@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\Jobs\SendReminderEmail;
+use App\User;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
@@ -17,6 +14,6 @@ class UsersController extends Controller
 
         $this->dispatch(new SendReminderEmail($user));
 
-        return "リマインダーメールを送りました。";
+        return 'リマインダーメールを送りました。';
     }
 }
